@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <RootNamespace>KenticoCloud.Recommender.SDK</RootNamespace>
+    <Description></Description>
+    <Copyright>(c) 2018 Kentico Software. All rights reserved.</Copyright>
+    <AssemblyTitle>Kentico Cloud Recommender AspNetCore SDK</AssemblyTitle>
+    <Title>Kentico Cloud Recommender AspNetCore SDK</Title>
+    <NeutralLanguage>en-us</NeutralLanguage>
+    <Authors>Kentico Software</Authors>
+    <AssemblyName>KenticoCloud.Recommender.SDK</AssemblyName>
+    <PackageId>KenticoCloud.Recommender.SDK</PackageId>
+    <PackageTags>kentico;mvc;aspnetcore;aspnetcoremvc</PackageTags>
+    <PackageIconUrl>http://kentico.com/favicon.ico</PackageIconUrl>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl></RepositoryUrl>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <Version>4.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JWT" Version="4.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+</Project>
