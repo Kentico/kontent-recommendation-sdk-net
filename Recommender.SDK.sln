@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recommender.SDK", "Recommender.SDK.csproj", "{BD28EC1E-CCF3-4275-9746-E9C5869B1EF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recommender.SDK", "Recommender.SDK\Recommender.SDK.csproj", "{3305E2D2-C398-4D56-9E3B-1BE299502FE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BD28EC1E-CCF3-4275-9746-E9C5869B1EF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD28EC1E-CCF3-4275-9746-E9C5869B1EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD28EC1E-CCF3-4275-9746-E9C5869B1EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD28EC1E-CCF3-4275-9746-E9C5869B1EF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3305E2D2-C398-4D56-9E3B-1BE299502FE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3305E2D2-C398-4D56-9E3B-1BE299502FE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3305E2D2-C398-4D56-9E3B-1BE299502FE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3305E2D2-C398-4D56-9E3B-1BE299502FE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
