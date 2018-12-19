@@ -1,4 +1,4 @@
-## Kentico Cloud Content Recommender SDK for .NET MVC
+## Kentico Cloud Content Recommender SDK for .NET
 
 ### Prerequisities
 * Kentico Cloud Account & Project
