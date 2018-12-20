@@ -11,6 +11,6 @@ More information can be found on our internal documentation page [**here**](http
 
 
 | Version        | Package  | Downloads |
-| ------------- |:-------------:| :-------------:|  :-------------:|
+| ------------- |:-------------:| :-------------:|
 | netcore2.0+         | [![NuGet](https://img.shields.io/nuget/v/KenticoCloud.Recommender.SDK.svg)](https://www.nuget.org/packages/KenticoCloud.Recommender.SDK) | [![NuGet](https://img.shields.io/nuget/dt/KenticoCloud.Recommender.SDK.svg)](https://www.nuget.org/packages/KenticoCloud.Recommender.SDK) |
-| net461      | [![NuGet](https://img.shields.io/nuget/v/KenticoCloud.Recommender.SDK.MVC.svg)](https://www.nuget.org/packages/KenticoCloud.Recommender.SDK.MVC) | [![NuGet](https://img.shields.io/nuget/dt/KenticoCloud.Recommender.SDK.MVC)](https://www.nuget.org/packages/KenticoCloud.Recommender.SDK.MVC) |
+| net461      | [![NuGet](https://img.shields.io/nuget/v/KenticoCloud.Recommender.SDK.MVC.svg)](https://www.nuget.org/packages/KenticoCloud.Recommender.SDK.MVC) | [![NuGet](https://img.shields.io/nuget/dt/KenticoCloud.Recommender.SDK.MVC.svg)](https://www.nuget.org/packages/KenticoCloud.Recommender.SDK.MVC) |
