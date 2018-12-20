@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Web;
-using Recommender.SDK.Shared;
+using KenticoCloud.Recommender.SDK.Shared;
 
 namespace KenticoCloud.Recommender.SDK.MVC
 {

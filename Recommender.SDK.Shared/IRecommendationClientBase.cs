@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Recommender.SDK.Shared
+namespace KenticoCloud.Recommender.SDK.Shared
 {
     public interface IRecommendationClientBase
     {

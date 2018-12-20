@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using KenticoCloud.Recommender.SDK.Shared;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
-using Recommender.SDK.Shared;
 
 namespace KenticoCloud.Recommender.SDK
 {

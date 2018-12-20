@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Recommender.SDK.Shared
+namespace KenticoCloud.Recommender.SDK.Shared
 {
     public static class CookieHelpers
     {
