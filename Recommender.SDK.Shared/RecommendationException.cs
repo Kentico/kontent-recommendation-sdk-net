@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace KenticoCloud.Recommender.SDK
+namespace Recommender.SDK.Shared
 {
     public class RecommendationException : Exception
     {
