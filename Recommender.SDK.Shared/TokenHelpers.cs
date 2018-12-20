@@ -1,7 +1,7 @@
 ﻿using JWT;
 using JWT.Serializers;
 
-namespace Recommender.SDK.Shared
+namespace KenticoCloud.Recommender.SDK.Shared
 {
     public class TokenHelpers
     {

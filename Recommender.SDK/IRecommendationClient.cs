@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
+using KenticoCloud.Recommender.SDK.Shared;
 using Microsoft.AspNetCore.Http;
-using Recommender.SDK.Shared;
 
 namespace KenticoCloud.Recommender.SDK
 {

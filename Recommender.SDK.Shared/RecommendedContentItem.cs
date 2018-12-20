@@ -1,4 +1,4 @@
-namespace Recommender.SDK.Shared
+namespace KenticoCloud.Recommender.SDK.Shared
 {
     public class RecommendedContentItem
     {

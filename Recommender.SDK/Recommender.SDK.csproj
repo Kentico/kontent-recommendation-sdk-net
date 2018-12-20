@@ -32,10 +32,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Recommender.SDK.Shared\Recommender.SDK.Shared.csproj" PrivateAssets="All"/>
+    <ProjectReference Include="..\Recommender.SDK.Shared\Recommender.SDK.Shared.csproj" PrivateAssets="All" />
   </ItemGroup>
 
   <Target Name="IncludeP2PAssets">

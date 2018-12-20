@@ -3,8 +3,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using KenticoCloud.Recommender.SDK.Shared;
 using Newtonsoft.Json;
-using Recommender.SDK.Shared;
 
 namespace KenticoCloud.Recommender.SDK.MVC
 {

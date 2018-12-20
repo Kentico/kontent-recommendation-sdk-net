@@ -29,7 +29,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Recommender.SDK.Shared\Recommender.SDK.Shared.csproj" PrivateAssets="All"/>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Recommender.SDK.Shared\Recommender.SDK.Shared.csproj" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
