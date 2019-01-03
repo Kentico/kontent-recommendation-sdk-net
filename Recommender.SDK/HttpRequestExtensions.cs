@@ -9,7 +9,7 @@ namespace KenticoCloud.Recommender.SDK
     {
         public static TrackingCookieModel GetCurrentTrackingCookie(this HttpRequest request, HttpResponse response, string projectId)
         {
-            var cookieKey = request.Cookies.Keys.FirstOrDefault(x => x.StartsWith("k_e_id"));
+            var cookieKey = request.Cookies.Keys.FirstOrDefault(x => x.StartsWith(TrackingCookieModel.Name));
             return !string.IsNullOrEmpty(cookieKey)
                 ? CookieHelpers.ParseTrackingCookie(request.Cookies[cookieKey])
                 : request.GetNewTrackingCookie(response, projectId);
