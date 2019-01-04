@@ -1,4 +1,4 @@
-﻿namespace KenticoCloud.Recommender.SDK.Shared
+﻿namespace KenticoCloud.Recommender
 {
     public class CallerInfo
     {

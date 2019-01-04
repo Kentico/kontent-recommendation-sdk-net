@@ -3,10 +3,9 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using KenticoCloud.Recommender.SDK.Shared;
 using Newtonsoft.Json;
 
-namespace KenticoCloud.Recommender.SDK.MVC
+namespace KenticoCloud.Recommender.MVC
 {
     public class RecommendationClient : RecommendationClientBase, IRecommendationClient
     {

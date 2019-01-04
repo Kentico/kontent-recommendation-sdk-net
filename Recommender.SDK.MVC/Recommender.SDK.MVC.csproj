@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net461</TargetFrameworks>
-    <RootNamespace>KenticoCloud.Recommender.SDK.MVC</RootNamespace>
+    <RootNamespace>KenticoCloud.Recommender.MVC</RootNamespace>
     <Description></Description>
     <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);IncludeP2PAssets</TargetsForTfmSpecificBuildOutput>
     <Copyright>(c) 2018 Kentico Software. All rights reserved.</Copyright>
@@ -10,8 +10,8 @@
     <Title>Kentico Cloud Recommender SDK for .NET MVC</Title>
     <NeutralLanguage>en-us</NeutralLanguage>
     <Authors>Kentico Software</Authors>
-    <AssemblyName>KenticoCloud.Recommender.SDK.MVC</AssemblyName>
-    <PackageId>KenticoCloud.Recommender.SDK.MVC</PackageId>
+    <AssemblyName>KenticoCloud.Recommender.MVC</AssemblyName>
+    <PackageId>KenticoCloud.Recommender.MVC</PackageId>
     <PackageTags>kentico;mvc</PackageTags>
     <PackageIconUrl>http://kentico.com/favicon.ico</PackageIconUrl>
     <PackageProjectUrl></PackageProjectUrl>
@@ -25,7 +25,6 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
-    <Version>4.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -43,7 +42,7 @@
 
   <Target Name="IncludeP2PAssets">
     <ItemGroup>
-      <BuildOutputInPackage Include="$(OutputPath)KenticoCloud.Recommender.SDK.Shared.dll" />
+      <BuildOutputInPackage Include="$(OutputPath)KenticoCloud.Recommender.Shared.dll" />
     </ItemGroup>
   </Target>
 </Project>
