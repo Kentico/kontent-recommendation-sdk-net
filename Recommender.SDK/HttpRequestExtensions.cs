@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
-using KenticoCloud.Recommender.SDK.Shared;
 using Microsoft.AspNetCore.Http;
 
-namespace KenticoCloud.Recommender.SDK
+namespace KenticoCloud.Recommender
 {
     public static class HttpRequestExtensions
     {

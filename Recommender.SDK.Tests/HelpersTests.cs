@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 using FluentAssertions;
-using KenticoCloud.Recommender.SDK.Shared;
+using KenticoCloud.Recommender;
 
 namespace Recommender.SDK.Tests
 {

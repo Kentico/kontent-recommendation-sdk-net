@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace KenticoCloud.Recommender.SDK.Shared
+namespace KenticoCloud.Recommender
 {
     public class RecommendationRequest
     {

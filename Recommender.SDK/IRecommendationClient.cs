@@ -1,8 +1,7 @@
 ﻿using System.Threading.Tasks;
-using KenticoCloud.Recommender.SDK.Shared;
 using Microsoft.AspNetCore.Http;
 
-namespace KenticoCloud.Recommender.SDK
+namespace KenticoCloud.Recommender
 {
     public interface IRecommendationClient : IRecommendationClientBase
     {

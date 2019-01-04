@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace KenticoCloud.Recommender.SDK.Shared
+namespace KenticoCloud.Recommender
 {
     public abstract partial class RecommendationClientBase
     {
