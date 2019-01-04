@@ -58,34 +58,16 @@ namespace KenticoCloud.Recommender.SDK.Shared
             }
         }
 
-        protected Task<RecommendedContentItem[]> GetRecommendationsFromRequest(RecommendationRequest request)
+        public Task<RecommendedContentItem[]> GetRecommendationsFromRequest(RecommendationRequest request)
         {
-            var queryString =
-                new StringBuilder($"{RecommendationApiRoutePrefix}/Items?currentItemId={request.Codename}&visitId={request.VisitId}&limit={request.Limit}");
-
-            if (!string.IsNullOrWhiteSpace(request.ContentTypeName) && request.ContentTypeName != "*")
-                queryString.Append($"&contentTypeName={request.ContentTypeName}");
-
-            if(!string.IsNullOrWhiteSpace(request.FilterQuery))
-                queryString.Append($"&filterQuery={request.FilterQuery}");
-
-            if(!string.IsNullOrWhiteSpace(request.BoosterQuery))
-                queryString.Append($"&boosterQuery={request.BoosterQuery}");
-
-            if(!string.IsNullOrWhiteSpace(request.SourceApp))
-                queryString.Append($"&sourceApp={request.SourceApp}");
-
-            if (request.SeparateTracking)
-                queryString.Append($"&separateTracking=true");
-
             switch (request.Method)
             {
                 case HttpMethodEnum.Get:
-                    return GetAsync<RecommendedContentItem[]>(queryString.ToString());
+                    return GetAsync<RecommendedContentItem[]>(Helpers.GetQueryFromRequest(request, RecommendationApiRoutePrefix));
                 case HttpMethodEnum.Post:
-                    return PostAsync<RecommendedContentItem[]>(queryString.ToString(), JsonConvert.SerializeObject(request.VisitorData));
+                    return PostAsync<RecommendedContentItem[]>(Helpers.GetQueryFromRequest(request, RecommendationApiRoutePrefix), JsonConvert.SerializeObject(request.VisitorData));
                 default:
-                    throw new Exception("Unspecified Htttp Method for Request");
+                    throw new Exception("Unspecified Http Method for Request");
             }
         }
 
@@ -108,7 +90,7 @@ namespace KenticoCloud.Recommender.SDK.Shared
             if(string.IsNullOrEmpty(contentType))
                 throw new ArgumentException("Content Type has to be set.", nameof(contentType));
 
-            var projectId = TokenHelpers.GetProjectIdFromToken(Token);
+            var projectId = Helpers.GetProjectIdFromToken(Token);
             if (string.IsNullOrEmpty(projectId))
                 throw new ArgumentException("Invalid authorization token.");
 

@@ -26,7 +26,7 @@ namespace KenticoCloud.Recommender.SDK.MVC
         private CallerInfo GetCallerInfoFromRequest(HttpRequestBase request, HttpResponseBase response,
             bool sessionBased)
         {
-            var projectId = TokenHelpers.GetProjectIdFromToken(Token);
+            var projectId = Helpers.GetProjectIdFromToken(Token);
             if (string.IsNullOrEmpty(projectId))
                 throw new ArgumentException("Invalid authorization token.");
 

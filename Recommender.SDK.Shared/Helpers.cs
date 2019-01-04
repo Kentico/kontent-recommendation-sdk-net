@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using JWT;
+using JWT.Serializers;
 
 namespace KenticoCloud.Recommender.SDK.Shared
 {
-    public static class CookieHelpers
+    public static class Helpers
     {
         private static readonly Random Rnd = new Random();
 
@@ -69,6 +71,37 @@ namespace KenticoCloud.Recommender.SDK.Shared
                 Sid = sid,
                 SessionExpiration = (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds
             };
+        }
+
+        public static string GetProjectIdFromToken(string token)
+        {
+            var serializer = new JsonNetSerializer();
+            var decoder = new JwtDecoder(serializer, new JwtValidator(serializer, new UtcDateTimeProvider()), new JwtBase64UrlEncoder());
+            var decodedToken = decoder.DecodeToObject(token);
+            return decodedToken["pid"].ToString();
+        }
+
+        public static string GetQueryFromRequest(RecommendationRequest request, string prefix)
+        {
+            var queryString =
+                new StringBuilder($"{prefix}/Items?currentItemId={request.Codename}&visitId={request.VisitId}&limit={request.Limit}");
+
+            if (!string.IsNullOrWhiteSpace(request.ContentTypeName) && request.ContentTypeName != "*")
+                queryString.Append($"&contentTypeName={request.ContentTypeName}");
+
+            if(!string.IsNullOrWhiteSpace(request.FilterQuery))
+                queryString.Append($"&filterQuery={request.FilterQuery}");
+
+            if(!string.IsNullOrWhiteSpace(request.BoosterQuery))
+                queryString.Append($"&boosterQuery={request.BoosterQuery}");
+
+            if(!string.IsNullOrWhiteSpace(request.SourceApp))
+                queryString.Append($"&sourceApp={request.SourceApp}");
+
+            if (request.SeparateTracking)
+                queryString.Append($"&separateTracking=true");
+
+            return queryString.ToString();
         }
 
     }
