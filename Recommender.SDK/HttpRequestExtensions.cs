@@ -11,13 +11,13 @@ namespace KenticoCloud.Recommender.SDK
         {
             var cookieKey = request.Cookies.Keys.FirstOrDefault(x => x.StartsWith(TrackingCookieModel.Name));
             return !string.IsNullOrEmpty(cookieKey)
-                ? CookieHelpers.ParseTrackingCookie(request.Cookies[cookieKey])
+                ? Helpers.ParseTrackingCookie(request.Cookies[cookieKey])
                 : request.GetNewTrackingCookie(response, projectId);
         }
 
         public static TrackingCookieModel GetNewTrackingCookie(this HttpRequest request, HttpResponse response, string projectId)
         {
-            var cookie = CookieHelpers.CreateCookie(request.Headers["User-Agent"], request.Headers["Host"]);
+            var cookie = Helpers.CreateCookie(request.Headers["User-Agent"], request.Headers["Host"]);
             response.Cookies.Append(TrackingCookieModel.Name, cookie.ToString(), new CookieOptions { Expires = DateTimeOffset.Now.AddYears(1), Domain = $".{request.Headers["Host"]}"});
             return cookie;
         }
@@ -29,7 +29,7 @@ namespace KenticoCloud.Recommender.SDK
             
             return new CallerInfo
             {
-                Ip = CookieHelpers.ParseIp(dirtyIp),
+                Ip = Helpers.ParseIp(dirtyIp),
                 Referer = request.Headers["Referer"],
                 VisitId = sessionBased ? sid : uid
             };
