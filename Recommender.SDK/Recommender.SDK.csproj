@@ -13,7 +13,7 @@
     <AssemblyName>KenticoCloud.Recommender</AssemblyName>
     <PackageId>KenticoCloud.Recommender</PackageId>
     <PackageTags>kentico;mvc;aspnetcore;aspnetcoremvc</PackageTags>
-    <PackageIconUrl>http://kentico.com/favicon.ico</PackageIconUrl>
+    <PackageIconUrl>https://github.com/Kentico/Home/blob/master/images/logo_nuget.png?raw=true</PackageIconUrl>
     <PackageProjectUrl></PackageProjectUrl>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
