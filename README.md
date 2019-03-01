@@ -14,3 +14,7 @@ More information can be found on our internal documentation page [**here**](http
 | ------------- |:-------------:| :-------------:|
 | netcore2.0+         | [![NuGet](https://img.shields.io/nuget/v/KenticoCloud.Recommender.svg)](https://www.nuget.org/packages/KenticoCloud.Recommender) | [![NuGet](https://img.shields.io/nuget/dt/KenticoCloud.Recommender.svg)](https://www.nuget.org/packages/KenticoCloud.Recommender) |
 | net461      | [![NuGet](https://img.shields.io/nuget/v/KenticoCloud.Recommender.MVC.svg)](https://www.nuget.org/packages/KenticoCloud.Recommender.MVC) | [![NuGet](https://img.shields.io/nuget/dt/KenticoCloud.Recommender.MVC.svg)](https://www.nuget.org/packages/KenticoCloud.Recommender.MVC) |
+
+
+
+![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/recommender-sdk-net?pixel)
