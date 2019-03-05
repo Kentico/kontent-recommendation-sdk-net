@@ -1,6 +1,7 @@
 ## Kentico Cloud Content Recommender SDK for .NET
 
 [![Build status](https://ci.appveyor.com/api/projects/status/64jwwc4yy82fgxlv/branch/master?svg=true)](https://ci.appveyor.com/project/kentico/recommender-sdk-net/branch/master)
+[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
 
 ### Prerequisities
 * Kentico Cloud Account & Project
