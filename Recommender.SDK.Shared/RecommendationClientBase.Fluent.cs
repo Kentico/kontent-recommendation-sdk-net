@@ -1,4 +1,4 @@
-﻿namespace KenticoCloud.Recommender
+﻿namespace Kentico.Kontent.Recommender.Recommender
 {
     public abstract partial class RecommendationClientBase
     {

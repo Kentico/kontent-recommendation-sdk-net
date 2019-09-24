@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
 
-namespace KenticoCloud.Recommender.MVC
+namespace Kentico.Kontent.Recommender.Recommender.MVC
 {
     public class RecommendationClient : RecommendationClientBase, IRecommendationClient
     {
