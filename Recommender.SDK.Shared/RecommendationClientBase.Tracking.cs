@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Kentico.Kontent.Recommender.Recommender
+namespace Kentico.Kontent.Recommender
 {
     public abstract partial class RecommendationClientBase
     {

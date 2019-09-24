@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace Kentico.Kontent.Recommender.Recommender
+namespace Kentico.Kontent.Recommender
 {
     public class RecommendationException : Exception
     {

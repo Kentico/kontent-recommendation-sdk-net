@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
-namespace Kentico.Kontent.Recommender.Recommender
+namespace Kentico.Kontent.Recommender
 {
     public class RecommendationClient : RecommendationClientBase, IRecommendationClient
     {

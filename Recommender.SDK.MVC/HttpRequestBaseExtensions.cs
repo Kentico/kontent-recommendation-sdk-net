@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web;
 
-namespace Kentico.Kontent.Recommender.Recommender.MVC
+namespace Kentico.Kontent.Recommender.MVC
 {
     public static class HttpRequestBaseExtensions
     {
