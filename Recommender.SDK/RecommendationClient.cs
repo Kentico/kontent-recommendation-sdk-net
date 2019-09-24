@@ -8,7 +8,7 @@ namespace Kentico.Kontent.Recommender
 {
     public class RecommendationClient : RecommendationClientBase, IRecommendationClient
     {
-        public RecommendationClient(string accessToken, int timeoutSeconds) : this("https://kc-recommender-api-beta.kenticocloud.com", accessToken, timeoutSeconds)
+        public RecommendationClient(string accessToken, int timeoutSeconds) : this("https://recommendations.kontent.ai", accessToken, timeoutSeconds)
         {
         }
 

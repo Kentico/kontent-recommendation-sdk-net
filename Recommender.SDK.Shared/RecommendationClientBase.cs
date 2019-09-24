@@ -13,7 +13,7 @@ namespace Kentico.Kontent.Recommender
         protected const string RecommendationApiRoutePrefix = "api/Recommend";
         protected readonly string Token;
 
-        protected RecommendationClientBase(string accessToken, int timeoutSeconds) : this("https://kc-recommender-api-beta.kenticocloud.com", accessToken, timeoutSeconds)
+        protected RecommendationClientBase(string accessToken, int timeoutSeconds) : this("https://recommendations.kontent.ai", accessToken, timeoutSeconds)
         {
         }
 
