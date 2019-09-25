@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>KenticoKontent.Recommender.SDK.Tests</RootNamespace>
+    <AssemblyName>KenticoKontent.Recommender.SDK.Tests</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

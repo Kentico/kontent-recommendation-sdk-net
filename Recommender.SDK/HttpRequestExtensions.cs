@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 
-namespace KenticoCloud.Recommender
+namespace KenticoKontent.Recommender
 {
     public static class HttpRequestExtensions
     {

@@ -4,7 +4,7 @@ using System.Text;
 using JWT;
 using JWT.Serializers;
 
-namespace KenticoCloud.Recommender
+namespace KenticoKontent.Recommender
 {
     public static class Helpers
     {

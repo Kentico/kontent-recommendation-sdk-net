@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace KenticoCloud.Recommender
+namespace KenticoKontent.Recommender
 {
     public static class RecommendationRequestExtensions
     {

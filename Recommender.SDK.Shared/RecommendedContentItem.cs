@@ -1,4 +1,4 @@
-namespace KenticoCloud.Recommender
+namespace KenticoKontent.Recommender
 {
     public class RecommendedContentItem
     {

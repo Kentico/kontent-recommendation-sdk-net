@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace KenticoCloud.Recommender
+namespace KenticoKontent.Recommender
 {
     public abstract partial class RecommendationClientBase : IRecommendationClientBase
     {

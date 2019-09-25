@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xunit;
 using FluentAssertions;
-using KenticoCloud.Recommender;
+using Xunit;
 
-namespace Recommender.SDK.Tests
+namespace KenticoKontent.Recommender.SDK.Tests
 {
     public class HelpersTests
     {
