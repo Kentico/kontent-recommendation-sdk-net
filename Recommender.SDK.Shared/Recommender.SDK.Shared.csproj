@@ -5,7 +5,7 @@
     <AssemblyName>KenticoKontent.Recommender.Shared</AssemblyName>
     <RootNamespace>KenticoKontent.Recommender</RootNamespace>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
