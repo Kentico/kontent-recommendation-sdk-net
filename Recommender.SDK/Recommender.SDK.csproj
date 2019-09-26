@@ -13,7 +13,7 @@
     <AssemblyName>Kentico.Kontent.Recommender</AssemblyName>
     <PackageId>Kentico.Kontent.Recommender</PackageId>
     <PackageTags>kentico;mvc;aspnetcore;aspnetcoremvc</PackageTags>
-    <PackageIconUrl>https://github.com/Kentico/Home/blob/master/images/logo_nuget.png?raw=true</PackageIconUrl>
+    <PackageIconUrl>https://github.com/Kentico/Home/blob/master/images/kk-logo-nuget.png?raw=true</PackageIconUrl>
     <PackageProjectUrl>https://github.com/Kentico/recommender-sdk-net</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
