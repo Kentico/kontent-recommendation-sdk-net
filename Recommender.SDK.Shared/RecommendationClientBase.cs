@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace KenticoCloud.Recommender
+namespace Kentico.Kontent.Recommender
 {
     public abstract partial class RecommendationClientBase : IRecommendationClientBase
     {
@@ -13,7 +13,7 @@ namespace KenticoCloud.Recommender
         protected const string RecommendationApiRoutePrefix = "api/Recommend";
         protected readonly string Token;
 
-        protected RecommendationClientBase(string accessToken, int timeoutSeconds) : this("https://kc-recommender-api-beta.kenticocloud.com", accessToken, timeoutSeconds)
+        protected RecommendationClientBase(string accessToken, int timeoutSeconds) : this("https://recommendations.kontent.ai", accessToken, timeoutSeconds)
         {
         }
 

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Web;
 
-namespace KenticoCloud.Recommender.MVC
+namespace Kentico.Kontent.Recommender.MVC
 {
     public interface IRecommendationClient : IRecommendationClientBase
     {

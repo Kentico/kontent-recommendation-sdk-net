@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
-namespace KenticoCloud.Recommender
+namespace Kentico.Kontent.Recommender
 {
     public class RecommendationClient : RecommendationClientBase, IRecommendationClient
     {
-        public RecommendationClient(string accessToken, int timeoutSeconds) : this("https://kc-recommender-api-beta.kenticocloud.com", accessToken, timeoutSeconds)
+        public RecommendationClient(string accessToken, int timeoutSeconds) : this("https://recommendations.kontent.ai", accessToken, timeoutSeconds)
         {
         }
 

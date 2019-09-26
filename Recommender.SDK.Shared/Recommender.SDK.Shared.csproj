@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>KenticoCloud.Recommender.Shared</AssemblyName>
-    <RootNamespace>KenticoCloud.Recommender</RootNamespace>
+    <AssemblyName>Kentico.Kontent.Recommender.Shared</AssemblyName>
+    <RootNamespace>Kentico.Kontent.Recommender</RootNamespace>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IncludeSymbols>true</IncludeSymbols>

@@ -2,16 +2,16 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <RootNamespace>KenticoCloud.Recommender</RootNamespace>
+    <RootNamespace>Kentico.Kontent.Recommender</RootNamespace>
     <Description></Description>
     <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);IncludeP2PAssets</TargetsForTfmSpecificBuildOutput>
     <Copyright>(c) 2018 Kentico Software. All rights reserved.</Copyright>
-    <AssemblyTitle>Kentico Cloud Recommender AspNetCore SDK</AssemblyTitle>
-    <Title>Kentico Cloud Recommender Netstandard SDK</Title>
+    <AssemblyTitle>Kentico Kontent Recommender AspNetCore SDK</AssemblyTitle>
+    <Title>Kentico Kontent Recommender Netstandard SDK</Title>
     <NeutralLanguage>en-us</NeutralLanguage>
     <Authors>Kentico Software</Authors>
-    <AssemblyName>KenticoCloud.Recommender</AssemblyName>
-    <PackageId>KenticoCloud.Recommender</PackageId>
+    <AssemblyName>Kentico.Kontent.Recommender</AssemblyName>
+    <PackageId>Kentico.Kontent.Recommender</PackageId>
     <PackageTags>kentico;mvc;aspnetcore;aspnetcoremvc</PackageTags>
     <PackageIconUrl>https://github.com/Kentico/Home/blob/master/images/logo_nuget.png?raw=true</PackageIconUrl>
     <PackageProjectUrl>https://github.com/Kentico/recommender-sdk-net</PackageProjectUrl>
@@ -41,7 +41,7 @@
 
   <Target Name="IncludeP2PAssets">
     <ItemGroup>
-      <BuildOutputInPackage Include="$(OutputPath)KenticoCloud.Recommender.Shared.dll" />
+      <BuildOutputInPackage Include="$(OutputPath)Kentico.Kontent.Recommender.Shared.dll" />
     </ItemGroup>
   </Target>
 </Project>
