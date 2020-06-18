@@ -1,15 +1,51 @@
 ﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 
 namespace Kentico.Kontent.Recommender
 {
-    public interface IRecommendationClient : IRecommendationClientBase
+    /// <summary>
+    /// SDK for using the Recommendation API in Kentico Kontent
+    /// </summary>
+    public interface IRecommendationClient
     {
-        Task<RecommendedContentItem[]> GetRecommendationsAsync(string codename, HttpRequest request, HttpResponse response, int limit, string contentType, string filterQuery = "", string boosterQuery = "", string sourceApp = "", bool sessionBased = false, bool separateTracking = false);
-        RecommendationRequest CreateRequest(HttpRequest request, HttpResponse response, string codename, int limit, string contentType, bool sessionBased = false);
+        /// <summary>
+        /// Returns recommendations provided by the recommendation engine based on sent request
+        /// </summary>
+        /// <param name="recommendationRequest"></param>
+        /// <returns></returns>
+        Task<RecommendedContentItem[]> GetRecommendationsAsync(RecommendationRequest recommendationRequest);
 
-        Task TrackVisitAsync(string codename, HttpRequest request, HttpResponse response, string sourceApp = "", bool sessionBased = false);
-        Task TrackConversionAsync(string codename, HttpRequest request, HttpResponse response, string sourceApp = "", bool sessionBased = false);
-        Task TrackPortionViewAsync(string codename, int portionPercentage, HttpRequest request, HttpResponse response, string sourceApp = "", bool sessionBased = false);
+        /// <summary>
+        /// Creates a new visitor in the recommendation engine
+        /// IMPORTANT: Does not need separate tracking enabled to work
+        /// </summary>
+        /// <param name="visitId"></param>
+        /// <param name="visitor"></param>
+        /// <returns></returns>
+        Task CreateVisitor(string visitId, VisitorDetails visitor);
+
+        /// <summary>
+        /// Logs an event of a visitor visiting an item with a given codename
+        /// </summary>
+        /// <param name="visitId"></param>
+        /// <param name="currentItemCodename"></param>
+        /// <returns></returns>
+        Task TrackVisitAsync(string visitId, string currentItemCodename);
+
+        /// <summary>
+        /// Logs an event of visitor converting on an item with a given codename
+        /// </summary>
+        /// <param name="visitId"></param>
+        /// <param name="currentItemCodename"></param>
+        /// <returns></returns>
+        Task TrackConversionAsync(string visitId, string currentItemCodename);
+
+        /// <summary>
+        /// Logs an event of visitor viewing a portion of item with a given codename
+        /// </summary>
+        /// <param name="visitId"></param>
+        /// <param name="currentItemCodename"></param>
+        /// <param name="portionPercentage"></param>
+        /// <returns></returns>
+        Task TrackPortionViewAsync(string visitId, string currentItemCodename, int portionPercentage);
     }
 }

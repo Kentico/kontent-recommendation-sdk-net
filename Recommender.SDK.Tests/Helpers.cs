@@ -81,28 +81,5 @@ namespace Kentico.Kontent.Recommender
             return decodedToken["pid"].ToString();
         }
 
-        public static string GetQueryFromRequest(RecommendationRequest request, string prefix)
-        {
-            var queryString =
-                new StringBuilder($"{prefix}/Items?currentItemId={request.Codename}&visitId={request.VisitId}&limit={request.Limit}");
-
-            if (!string.IsNullOrWhiteSpace(request.ContentTypeName) && request.ContentTypeName != "*")
-                queryString.Append($"&contentTypeName={request.ContentTypeName}");
-
-            if(!string.IsNullOrWhiteSpace(request.FilterQuery))
-                queryString.Append($"&filterQuery={request.FilterQuery}");
-
-            if(!string.IsNullOrWhiteSpace(request.BoosterQuery))
-                queryString.Append($"&boosterQuery={request.BoosterQuery}");
-
-            if(!string.IsNullOrWhiteSpace(request.SourceApp))
-                queryString.Append($"&sourceApp={request.SourceApp}");
-
-            if (request.SeparateTracking)
-                queryString.Append($"&separateTracking=true");
-
-            return queryString.ToString();
-        }
-
     }
 }

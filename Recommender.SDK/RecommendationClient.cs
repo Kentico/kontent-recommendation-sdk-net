@@ -1,143 +1,100 @@
 ﻿using System;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
 namespace Kentico.Kontent.Recommender
 {
-    public class RecommendationClient : RecommendationClientBase, IRecommendationClient
+    /// <inheritdoc />
+    public class RecommendationClient : IRecommendationClient
     {
-        public RecommendationClient(string accessToken, int timeoutSeconds) : this("https://recommendations.kontent.ai", accessToken, timeoutSeconds)
+        private readonly HttpClient Client;
+        private const string RecommendationEndpointRoutePrefix = "api/v2/recommend";
+        private const string TrackingEndpointRoutePrefix = "api/v2/track";
+
+        public RecommendationClient(string accessToken, int timeoutSeconds) : this("https://recommend.kontent.ai", accessToken, timeoutSeconds)
         {
         }
 
-        public RecommendationClient(string endpointUrl, string accessToken, int timeoutSeconds) : base(endpointUrl, accessToken, timeoutSeconds)
+        public RecommendationClient(string endpointUrl, string accessToken, int timeoutSeconds)
         {
+            Client = new HttpClient { BaseAddress = new Uri(endpointUrl), Timeout = TimeSpan.FromSeconds(timeoutSeconds)};
+            Client.DefaultRequestHeaders.Accept.Clear();
+            Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            Client.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken}");
         }
 
-        public RecommendationClient(HttpClient client, string accessToken) : base(client, accessToken)
+        public RecommendationClient(HttpClient client)
         {
+            Client = client;
         }
 
-        private CallerInfo GetCallerInfoFromRequest(HttpRequest request, HttpResponse response, bool sessionBased)
+        private async Task<T> PostAsync<T>(string url, string content)
         {
-            var projectId = Helpers.GetProjectIdFromToken(Token);
-            if (string.IsNullOrEmpty(projectId))
-                throw new ArgumentException("Invalid authorization token.");
-
-            var cookie = request.GetCurrentTrackingCookie(response, projectId);
-            if (string.IsNullOrEmpty(cookie.Uid))
-                throw new ArgumentException("Uid has to be set.", nameof(cookie.Uid));
-
-            return request.GetCallerInfo(cookie.Uid, cookie.Sid, sessionBased);
-        }
-
-        public Task<RecommendedContentItem[]> GetRecommendationsAsync(
-            string codename, 
-            HttpRequest request, 
-            HttpResponse response, 
-            int limit,
-            string contentType, 
-            string filterQuery = "", 
-            string boosterQuery = "", 
-            string sourceApp = "",
-            bool sessionBased = false,
-            bool separateTracking = false)
-        {
-            if (string.IsNullOrEmpty(codename))
-                throw new ArgumentException("Codename has to be set.", nameof(codename));
-
-            if(string.IsNullOrEmpty(contentType))
-                throw new ArgumentException("Content Type has to be set.", nameof(contentType));
-
-            var callerInfo = GetCallerInfoFromRequest(request, response, sessionBased);
-            
-            var req = new RecommendationRequest
+            using (var response = await Client.PostAsync(url, new StringContent(content, Encoding.UTF8, "application/json")))
             {
-                VisitId = callerInfo.VisitId,
-                Method = HttpMethodEnum.Post,
-                Codename = codename,
-                Limit = limit,
-                ContentTypeName = contentType,
-                FilterQuery = filterQuery,
-                BoosterQuery = boosterQuery,
-                SourceApp = sourceApp,
-                SeparateTracking = separateTracking,
-                VisitorData = callerInfo
-            };
+                var responseBody = await response.Content.ReadAsStringAsync();
 
-            return GetRecommendationsFromRequest(req);
+                if (response.IsSuccessStatusCode)
+                    return JsonConvert.DeserializeObject<T>(responseBody);
+
+                throw new RecommendationException(response.StatusCode, responseBody);
+            }
         }
 
-        public RecommendationRequest CreateRequest(HttpRequest request, HttpResponse response, string codename,
-            int limit, string contentType, bool sessionBased = false)
-        {
-            var visitorData = GetCallerInfoFromRequest(request, response, sessionBased);
-            var req = new RecommendationRequest
-            {
-                VisitId = visitorData.VisitId,
-                Codename = codename,
-                Limit = limit,
-                ContentTypeName = contentType,
-                VisitorData = visitorData,
-                Method = HttpMethodEnum.Post,
-                Executor = GetRecommendationsFromRequest
-            };
-
-            return req;
+        /// <inheritdoc />
+        public Task<RecommendedContentItem[]> GetRecommendationsAsync(RecommendationRequest request) { 
+            return PostAsync<RecommendedContentItem[]>($"{RecommendationEndpointRoutePrefix}/items", JsonConvert.SerializeObject(request));
         }
 
-         public Task TrackConversionAsync(
-            string codename, 
-            HttpRequest request, 
-            HttpResponse response, 
-            string sourceApp = "", 
-            bool sessionBased = false)
+        /// <inheritdoc />
+        public Task CreateVisitor(string visitId, VisitorDetails visitor)
         {
-            if (string.IsNullOrEmpty(codename))
-                throw new ArgumentException("Codename has to be set.", nameof(codename));
+            if (string.IsNullOrEmpty(visitId))
+                throw new ArgumentException("Visit Id has to be set.", nameof(visitId));
 
-            var callerInfo = GetCallerInfoFromRequest(request, response, sessionBased);
-            callerInfo.SourceApp = sourceApp;
+            if (visitor == null)
+                throw new ArgumentException("Visitor details has to be set.", nameof(visitor));
 
-            return PostAsync<object>($"{TrackingApiRoutePrefix}/Conversion?visitId={callerInfo.VisitId}&contentItemId={codename}",
-                JsonConvert.SerializeObject(callerInfo));
+            return PostAsync<object>($"{TrackingEndpointRoutePrefix}/visitor?visitId={visitId}", JsonConvert.SerializeObject(visitor));
         }
 
-        public Task TrackPortionViewAsync(
-            string codename,
-            int portionPercentage,
-            HttpRequest request, 
-            HttpResponse response,
-            string sourceApp = "", 
-            bool sessionBased = false)
+        /// <inheritdoc />
+        public Task TrackVisitAsync(string visitId, string currentItemCodename)
         {
-            if (string.IsNullOrEmpty(codename))
-                throw new ArgumentException("Codename has to be set.", nameof(codename));
+            if (string.IsNullOrEmpty(visitId))
+                throw new ArgumentException("Visit Id has to be set.", nameof(visitId));
 
-            var callerInfo = GetCallerInfoFromRequest(request, response, sessionBased);
-            callerInfo.SourceApp = sourceApp;
+            if (string.IsNullOrEmpty(currentItemCodename))
+                throw new ArgumentException("Codename of the currently viewed item has to be set.", nameof(currentItemCodename));
 
-            return PostAsync<object>($"{TrackingApiRoutePrefix}/PortionView?visitId={callerInfo.VisitId}&contentItemId={codename}&portionPercentage={portionPercentage}",
-                JsonConvert.SerializeObject(callerInfo));
+            return PostAsync<object>($"{TrackingEndpointRoutePrefix}/visit?visitId={visitId}&contentItemId={currentItemCodename}", "");
         }
 
-        public Task TrackVisitAsync(
-            string codename, 
-            HttpRequest request, 
-            HttpResponse response, 
-            string sourceApp = "", 
-            bool sessionBased = false)
+        /// <inheritdoc />
+        public Task TrackConversionAsync(string visitId, string currentItemCodename)
         {
-            if (string.IsNullOrEmpty(codename))
-                throw new ArgumentException("Codename has to be set.", nameof(codename));
+            if (string.IsNullOrEmpty(visitId))
+                throw new ArgumentException("Visit Id has to be set.", nameof(visitId));
 
-            var callerInfo = GetCallerInfoFromRequest(request, response, sessionBased);
-            callerInfo.SourceApp = sourceApp;
+            if (string.IsNullOrEmpty(currentItemCodename))
+                throw new ArgumentException("Codename of the currently viewed item has to be set.", nameof(currentItemCodename));
 
-            return PostAsync<object>($"{TrackingApiRoutePrefix}/Visit?visitId={callerInfo.VisitId}&contentItemId={codename}",
-                JsonConvert.SerializeObject(callerInfo));
+            return PostAsync<object>($"{TrackingEndpointRoutePrefix}/Conversion?visitId={visitId}&contentItemId={currentItemCodename}","");
+        }
+
+        /// <inheritdoc />
+        public Task TrackPortionViewAsync(string visitId, string currentItemCodename, int portionPercentage)
+        {
+            if (string.IsNullOrEmpty(visitId))
+                throw new ArgumentException("Visit Id has to be set.", nameof(visitId));
+
+            if (string.IsNullOrEmpty(currentItemCodename))
+                throw new ArgumentException("Codename of the currently viewed item has to be set.", nameof(currentItemCodename));
+
+            return PostAsync<object>($"{TrackingEndpointRoutePrefix}/PortionView?visitId={visitId}&contentItemId={currentItemCodename}&portionPercentage={portionPercentage}","");
         }
     }
 }

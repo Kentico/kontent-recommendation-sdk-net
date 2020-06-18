@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Recommender.SDK.Shared\Recommender.SDK.Shared.csproj" />
+    <ProjectReference Include="..\Recommender.SDK.Shared\Kentico.Kontent.Recommender.SDK.csproj" />
   </ItemGroup>
 
 </Project>
