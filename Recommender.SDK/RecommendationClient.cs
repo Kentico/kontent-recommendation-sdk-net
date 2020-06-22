@@ -14,7 +14,7 @@ namespace Kentico.Kontent.Recommender
         private const string RecommendationEndpointRoutePrefix = "api/v2/recommend";
         private const string TrackingEndpointRoutePrefix = "api/v2/track";
 
-        public RecommendationClient(string accessToken, int timeoutSeconds) : this("https://recommend.kontent.ai", accessToken, timeoutSeconds)
+        public RecommendationClient(string accessToken, int timeoutSeconds) : this("http://recommender-api-v2.azurewebsites.net", accessToken, timeoutSeconds)
         {
         }
 
