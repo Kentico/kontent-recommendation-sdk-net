@@ -11,8 +11,8 @@ namespace Kentico.Kontent.Recommender
     public class RecommendationClient : IRecommendationClient
     {
         private readonly HttpClient Client;
-        private const string RecommendationEndpointRoutePrefix = "api/v2/recommend";
-        private const string TrackingEndpointRoutePrefix = "api/v2/track";
+        private const string RecommendationEndpointRoutePrefix = "/api/v2/recommend";
+        private const string TrackingEndpointRoutePrefix = "/api/v2/track";
 
         public RecommendationClient(string accessToken, int timeoutSeconds) : this("http://recommender-api-v2.azurewebsites.net", accessToken, timeoutSeconds)
         {
@@ -40,7 +40,7 @@ namespace Kentico.Kontent.Recommender
                 if (response.IsSuccessStatusCode)
                     return JsonConvert.DeserializeObject<T>(responseBody);
 
-                throw new RecommendationException(response.StatusCode, responseBody);
+                throw new Exception(responseBody);
             }
         }
 

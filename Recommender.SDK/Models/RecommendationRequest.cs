@@ -1,4 +1,6 @@
-﻿namespace Kentico.Kontent.Recommender
+﻿using Newtonsoft.Json.Linq;
+
+namespace Kentico.Kontent.Recommender
 {
     /// <summary>
     /// Request for Kontent Recommendations
@@ -38,5 +40,27 @@
         /// Alternatively, visitor details can be supplied by calling the CreateVisitor SDK method
         /// </summary>
         public VisitorDetails Visitor { get; set; }
+
+        /// <summary>
+        /// Creates the recommendation request object from the recommendation custom element
+        /// </summary>
+        /// <param name="visitId"></param>
+        /// <param name="customElementValue"></param>
+        /// <returns></returns>
+        public static RecommendationRequest CreateFromCustomElement(string visitId, string customElementValue)
+        {
+            dynamic customElementSetupObject = JObject.Parse(customElementValue);
+            return new RecommendationRequest
+            {
+                VisitId = visitId,
+                CurrentItemCodename = customElementSetupObject.itemCodename,
+                RequestedTypeCodename = customElementSetupObject.requestedType,
+                ResponseLimit = customElementSetupObject.requestedCount,
+                RecommendationSettings = new RecommendationSettings
+                {
+                    Scenario = customElementSetupObject.scenario
+                }
+            };
+        }
     }
 }
