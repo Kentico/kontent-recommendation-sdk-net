@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace Kentico.Kontent.Recommender
+namespace Kentico.Kontent.Recommendations.Models
 {
     /// <summary>
     /// Request for Kontent Recommendations

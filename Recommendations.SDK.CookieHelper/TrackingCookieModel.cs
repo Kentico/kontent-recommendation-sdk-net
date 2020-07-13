@@ -1,4 +1,4 @@
-﻿namespace Kentico.Kontent.Recommender.SDK.CookieHelper
+﻿namespace Kentico.Kontent.Recommendations.CookieHelper
 {
     public class TrackingCookieModel
     {

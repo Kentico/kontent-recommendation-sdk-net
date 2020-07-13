@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Kentico.Kontent.Recommender.SDK.CookieHelper
+namespace Kentico.Kontent.Recommendations.CookieHelper
 {
     public static class Helpers
     {

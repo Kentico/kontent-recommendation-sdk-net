@@ -3,9 +3,10 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Kentico.Kontent.Recommendations.Models;
 using Newtonsoft.Json;
 
-namespace Kentico.Kontent.Recommender
+namespace Kentico.Kontent.Recommendations
 {
     /// <inheritdoc />
     public class RecommendationClient : IRecommendationClient
@@ -14,7 +15,7 @@ namespace Kentico.Kontent.Recommender
         private const string RecommendationEndpointRoutePrefix = "/api/v2/recommend";
         private const string TrackingEndpointRoutePrefix = "/api/v2/track";
 
-        public RecommendationClient(string accessToken, int timeoutSeconds) : this("http://recommender-api-v2.azurewebsites.net", accessToken, timeoutSeconds)
+        public RecommendationClient(string accessToken, int timeoutSeconds) : this("http://recommend.kontent.ai", accessToken, timeoutSeconds)
         {
         }
 
@@ -50,7 +51,7 @@ namespace Kentico.Kontent.Recommender
         }
 
         /// <inheritdoc />
-        public Task CreateVisitor(string visitId, VisitorDetails visitor)
+        public Task CreateVisitorAsync(string visitId, VisitorDetails visitor)
         {
             if (string.IsNullOrEmpty(visitId))
                 throw new ArgumentException("Visit Id has to be set.", nameof(visitId));

@@ -2,16 +2,16 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <RootNamespace>Kentico.Kontent.Recommender.SDK.CookieHelper</RootNamespace>
+    <RootNamespace>Kentico.Kontent.Recommendations.CookieHelper</RootNamespace>
     <Description></Description>
     <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput)</TargetsForTfmSpecificBuildOutput>
     <Copyright>(c) 2020 Kentico Software. All rights reserved.</Copyright>
-    <AssemblyTitle>Kentico Kontent Recommender SDK CookieHelper AspNetCore </AssemblyTitle>
-    <Title>Kentico Kontent Recommender SDK CookieHelper AspNetCore</Title>
+    <AssemblyTitle>Kentico Kontent Recommendations CookieHelper (AspNetCore)</AssemblyTitle>
+    <Title>Kentico Kontent Recommendations CookieHelper (AspNetCore)</Title>
     <NeutralLanguage>en-us</NeutralLanguage>
     <Authors>Kentico Software</Authors>
-    <AssemblyName>Kentico.Kontent.Recommender.SDK.CookieHelper</AssemblyName>
-    <PackageId>Kentico.Kontent.Recommender.CookieHelper</PackageId>
+    <AssemblyName>Kentico.Kontent.Recommendations.CookieHelper</AssemblyName>
+    <PackageId>Kentico.Kontent.Recommendations.CookieHelper</PackageId>
     <PackageTags>kentico;kontent;recommender;cookie</PackageTags>
     <PackageIconUrl>https://github.com/Kentico/Home/blob/master/images/kk-logo-nuget.png?raw=true</PackageIconUrl>
     <PackageProjectUrl>https://github.com/Kentico/recommender-sdk-net</PackageProjectUrl>
@@ -24,6 +24,7 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <Product>Kentico.Kontent.Recommendations.CookieHelper</Product>
   </PropertyGroup>
 
   <ItemGroup>

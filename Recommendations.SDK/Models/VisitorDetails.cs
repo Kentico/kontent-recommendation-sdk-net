@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Kentico.Kontent.Recommender
+namespace Kentico.Kontent.Recommendations.Models
 {
     /// <summary>
     /// Details about current visitor

@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
+using Kentico.Kontent.Recommendations.Models;
 
-namespace Kentico.Kontent.Recommender
+namespace Kentico.Kontent.Recommendations
 {
     /// <summary>
     /// SDK for using the Recommendation API in Kentico Kontent
@@ -21,7 +22,7 @@ namespace Kentico.Kontent.Recommender
         /// <param name="visitId"></param>
         /// <param name="visitor"></param>
         /// <returns></returns>
-        Task CreateVisitor(string visitId, VisitorDetails visitor);
+        Task CreateVisitorAsync(string visitId, VisitorDetails visitor);
 
         /// <summary>
         /// Logs an event of a visitor visiting an item with a given codename

@@ -1,4 +1,4 @@
-namespace Kentico.Kontent.Recommender
+namespace Kentico.Kontent.Recommendations.Models
 {
     /// <summary>
     /// Recommended Content Item returned by the recommendation engine

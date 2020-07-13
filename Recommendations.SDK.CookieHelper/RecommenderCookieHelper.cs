@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 
-namespace Kentico.Kontent.Recommender.SDK.CookieHelper
+namespace Kentico.Kontent.Recommendations.CookieHelper
 {
     public static class RecommenderCookieHelper
     {
