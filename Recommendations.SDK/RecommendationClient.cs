@@ -71,7 +71,9 @@ namespace Kentico.Kontent.Recommendations
             if (string.IsNullOrEmpty(currentItemCodename))
                 throw new ArgumentException("Codename of the currently viewed item has to be set.", nameof(currentItemCodename));
 
-            return PostAsync<object>($"{TrackingEndpointRoutePrefix}/visit?visitId={visitId}&contentItemId={currentItemCodename}", "");
+            var data = new VisitData { VisitId = visitId, CurrentItemCodename = currentItemCodename };
+
+            return PostAsync<object>($"{TrackingEndpointRoutePrefix}/visit", JsonConvert.SerializeObject(data));
         }
 
         /// <inheritdoc />
@@ -83,7 +85,9 @@ namespace Kentico.Kontent.Recommendations
             if (string.IsNullOrEmpty(currentItemCodename))
                 throw new ArgumentException("Codename of the currently viewed item has to be set.", nameof(currentItemCodename));
 
-            return PostAsync<object>($"{TrackingEndpointRoutePrefix}/Conversion?visitId={visitId}&contentItemId={currentItemCodename}","");
+            var data = new VisitData { VisitId = visitId, CurrentItemCodename = currentItemCodename};
+
+            return PostAsync<object>($"{TrackingEndpointRoutePrefix}/conversion",JsonConvert.SerializeObject(data));
         }
 
         /// <inheritdoc />
@@ -95,7 +99,10 @@ namespace Kentico.Kontent.Recommendations
             if (string.IsNullOrEmpty(currentItemCodename))
                 throw new ArgumentException("Codename of the currently viewed item has to be set.", nameof(currentItemCodename));
 
-            return PostAsync<object>($"{TrackingEndpointRoutePrefix}/PortionView?visitId={visitId}&contentItemId={currentItemCodename}&portionPercentage={portionPercentage}","");
+            var data = new PortionViewData
+                {VisitId = visitId, CurrentItemCodename = currentItemCodename, PortionPercentage = portionPercentage};
+
+            return PostAsync<object>($"{TrackingEndpointRoutePrefix}/portion", JsonConvert.SerializeObject(data));
         }
     }
 }
