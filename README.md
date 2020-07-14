@@ -73,7 +73,7 @@ var visitor = new VisitorDetails {
 
 var recommendationRequest = new RecommendationRequest {
         VisitId = "clientId",
-        CurrentItemCodename = current_codename"",
+        CurrentItemCodename = "current_codename",
         ResponseLimit = 2,
         RequestedTypeCodename = "article",
        // Adding the visitor data into the recommendation request
@@ -95,13 +95,13 @@ This package provides a helper class, that let's you setup a very simple yet eff
 Installation via Package Manager Console in Visual Studio:
 
 ```powershell
-PM> Install-Package Kentico.Kontent.CookieHelper 
+PM> Install-Package Kentico.Kontent.Recommendations.CookieHelper 
 ```
 
 Installation via .NET CLI:
 
 ```console
-> dotnet add package Kentico.Kontent.CookieHelper 
+> dotnet add package Kentico.Kontent.Recommendations.CookieHelper 
 ```
 
 #### Keep in mind, that you may be legally bound to disclose this information to your visitors and let them disable tracking cookies when using this package.
@@ -110,13 +110,13 @@ Installation via .NET CLI:
 using Kentico.Kontent.Recommendations.CookieHelper;
 
 //The visitId is being stored inside of the tracking cookie
-var trackingCookie = RecommenderCookieHelper.GetRecommenderTrackingCookie(Request);
+var cookie = RecommendationCookieHelper.GetRecommendationTrackingCookie(Request);
 
 //If there is no cookie -> the visitor just arrived and doesn't yet have the visitId
-if (trackingCookie == null) 
+if (cookie == null) 
 {
    //We create a new tracking cookie for the visitor
-   trackingCookie = RecommenderCookieHelper.SetNewRecommenderTrackingCookie(Request, Response);
+   cookie = RecommendationCookieHelper.SetNewRecommendationTrackingCookie(Request, Response);
 }
 
 //Generated visitId we can use in the recommendation request
@@ -124,7 +124,7 @@ var visitId = trackingCookie.VisitId;
 
 //The helper also let's you extract initialized VisitorDetails object
 //It fills out the referrer and IP address
-var visitor = RecommenderCookieHelper.GetVisitorDetails(Request); 
+var visitor = RecommendationCookieHelper.GetVisitorDetails(Request); 
 ```
 
 # Tracking visitor-content interactions
