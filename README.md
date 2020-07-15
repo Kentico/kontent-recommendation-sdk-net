@@ -34,6 +34,7 @@ To recommend content from your Kentico Kontent projects, you'll be using an impl
 ## Basic scenario for getting recommendations
 ```csharp
 using Kentico.Kontent.Recommendations;
+using Kentico.Kontent.Recommendations.Models;
 
 //Creates an instance of the recommendation client
 var recommendationClient = new RecommendationClient(accessToken: "recommendation_token", timeoutSeconds: 5);
@@ -52,6 +53,8 @@ var recommendedArticles = await recommendationClient.GetRecommendationsAsync(rec
 
 ## Working with visitor data
 ```csharp
+using Kentico.Kontent.Recommendations.Models;
+
 //Manually inserted visitor details
 var visitor = new VisitorDetails {
     //Source of the visit
@@ -145,6 +148,35 @@ await recommendationClient.TrackConversionAsync("visitId","itemCodename");
 await recommendationClient.TrackPortionViewAsync("visitId", "itemCodename", 10);
 ```
 
+# Advanced recommendations
+You are able to use [Filtering](https://docs.recombee.com/reql_filtering_and_boosting.html#reql-filtering) and [Boosting](https://docs.recombee.com/reql_filtering_and_boosting.html#reql-boosting) in order to alter the outcome of your recommendations. The syntax of filters and boosters is written in [ReQL](https://docs.recombee.com/reql.html). The set of properties you can filter on is displayed inside of your Kontent App within the Recommendations module.
+
+```csharp
+using Kentico.Kontent.Recommendations;
+using Kentico.Kontent.Recommendations.Models;
+
+var recommendationSettings = new RecommendationSettings
+{
+   // recommend only items for specific persona
+   Filter = $"\"persona=developer\" in 'properties'",
+   
+   // prefer articles from last 30 days
+   Booster = $"if 'lastupdated' >= now() - {TimeSpan.FromDays(30).Milliseconds} then 2 else 1"
+}
+
+
+var recommendationClient = new RecommendationClient(accessToken: "recommendation_token", timeoutSeconds: 5);
+
+//Creates a new recommendation request
+var recommendationRequest = new RecommendationRequest {
+        VisitId = "clientId",
+        CurrentItemCodename = "current_codename",
+        ResponseLimit = 2,
+        RequestedTypeCodename = "article",
+        RecommendationSettings = recommendationSettings;
+};
+
+```
 
 # Further information
 * [Relevant documentation](https://docs.kontent.ai/tutorials/develop-apps/build-strong-foundation/personalize-content-with-ai)
