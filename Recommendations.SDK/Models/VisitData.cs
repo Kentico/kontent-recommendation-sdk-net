@@ -1,6 +1,6 @@
 ﻿namespace Kentico.Kontent.Recommendations.Models
 {
-    public class VisitData
+    internal class VisitData
     {
         /// <summary>
         /// Id of the visitor (user-provided)
@@ -13,7 +13,7 @@
         public string CurrentItemCodename { get; set; }
     }
 
-    public class PortionViewData : VisitData
+    internal class PortionViewData : VisitData
     {
         /// <summary>
         /// Percentage of read content (only the highest value reported counts in case of multiple consecutive reports)

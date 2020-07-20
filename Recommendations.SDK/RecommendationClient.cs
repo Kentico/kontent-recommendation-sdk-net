@@ -15,18 +15,33 @@ namespace Kentico.Kontent.Recommendations
         private const string RecommendationEndpointRoutePrefix = "/api/v2/recommend";
         private const string TrackingEndpointRoutePrefix = "/api/v2/track";
 
-        public RecommendationClient(string accessToken, int timeoutSeconds) : this("http://recommend.kontent.ai", accessToken, timeoutSeconds)
+        /// <summary>
+        /// Create a new instance of the recommendation client
+        /// </summary>
+        /// <param name="recommendationApiKey">Your recommendation Api Key (token)</param>
+        /// <param name="timeoutSeconds">Time after which the request will be canceled if not completed. You should implement a fallback if this situation ever occurs.</param>
+        public RecommendationClient(string recommendationApiKey, int timeoutSeconds) : this("http://recommend.kontent.ai", recommendationApiKey, timeoutSeconds)
         {
         }
 
-        public RecommendationClient(string endpointUrl, string accessToken, int timeoutSeconds)
+        /// <summary>
+        /// Create a new instance of the recommendation client
+        /// </summary>
+        /// <param name="endpointUrl">Address of Kontent Recommendation API</param>
+        /// <param name="recommendationApiKey">Your recommendation Api Key (token)</param>
+        /// <param name="timeoutSeconds"></param>
+        public RecommendationClient(string endpointUrl, string recommendationApiKey, int timeoutSeconds)
         {
             Client = new HttpClient { BaseAddress = new Uri(endpointUrl), Timeout = TimeSpan.FromSeconds(timeoutSeconds)};
             Client.DefaultRequestHeaders.Accept.Clear();
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            Client.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken}");
+            Client.DefaultRequestHeaders.Add("Authorization", $"Bearer {recommendationApiKey}");
         }
 
+        /// <summary>
+        /// Create a new instance of the recommendation client - for testing purposes
+        /// </summary>
+        /// <param name="client">Underlying http client (mock, ...)</param>
         public RecommendationClient(HttpClient client)
         {
             Client = client;
@@ -59,7 +74,13 @@ namespace Kentico.Kontent.Recommendations
             if (visitor == null)
                 throw new ArgumentException("Visitor details has to be set.", nameof(visitor));
 
-            return PostAsync<object>($"{TrackingEndpointRoutePrefix}/visitor?visitId={visitId}", JsonConvert.SerializeObject(visitor));
+            var request = new CreateVisitorRequest
+            {
+                VisitId = visitId,
+                Visitor = visitor
+            };
+
+            return PostAsync<object>($"{TrackingEndpointRoutePrefix}/visitor", JsonConvert.SerializeObject(request));
         }
 
         /// <inheritdoc />
