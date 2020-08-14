@@ -14,6 +14,7 @@ namespace Kentico.Kontent.Recommendations
         private readonly HttpClient Client;
         private const string RecommendationEndpointRoutePrefix = "/api/v2/recommend";
         private const string TrackingEndpointRoutePrefix = "/api/v2/track";
+        private const string SearchEndpointRoutePrefix = "/api/v2/seach";
 
         /// <summary>
         /// Create a new instance of the recommendation client
@@ -63,6 +64,12 @@ namespace Kentico.Kontent.Recommendations
         /// <inheritdoc />
         public Task<RecommendedContentItem[]> GetRecommendationsAsync(RecommendationRequest request) { 
             return PostAsync<RecommendedContentItem[]>($"{RecommendationEndpointRoutePrefix}/items", JsonConvert.SerializeObject(request));
+        }
+
+        /// <inheritdoc />
+        public Task<RecommendedContentItem[]> SearchAsync(SearchRequest request)
+        {
+            return PostAsync<RecommendedContentItem[]>($"{SearchEndpointRoutePrefix}/items", JsonConvert.SerializeObject(request));
         }
 
         /// <inheritdoc />

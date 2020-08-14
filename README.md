@@ -48,7 +48,7 @@ var recommendationRequest = new RecommendationRequest {
 };
 
 //The method returns a requested number of recommended content items (codenames)
-var recommendedArticles = await recommendationClient.GetRecommendationsAsync(recommendationRequest);
+RecommendedContentItem[] recommendedArticles = await recommendationClient.GetRecommendationsAsync(recommendationRequest);
 ```
 
 ## Working with visitor data
@@ -85,6 +85,28 @@ var recommendationRequest = new RecommendationRequest {
 
 // ALTERNATIVELY you can use the CreateVisitorAsync method to take control of visitor creation
 await recommendationClient.CreateVisitorAsync("clientId", visitor);
+```
+
+# Searching content
+In addition to recommending content based on other content, the system offers an option to search for items directly. The results are based on the full-text matching of a search query and can be filtered by content type. Search method returns the same type of result as the recommendation method does, i.e. array of objects with a codename property containing codename of the found item. 
+
+```csharp
+using Kentico.Kontent.Recommendations;
+using Kentico.Kontent.Recommendations.Models;
+
+//Creates an instance of the recommendation client
+var recommendationClient = new RecommendationClient(accessToken: "recommendation_token", timeoutSeconds: 5);
+
+//Creates a new recommendation request
+var searchRequest = new SearchRequest {
+        VisitId = "clientId",
+        Query = "this is a search query",
+        ResultCount = 10,
+        RequestedTypeCodename = "article"
+};
+
+//The method returns a requested number of recommended content items (codenames)
+RecommendedContentItem[] foundArticles = await recommendationClient.SearchAsync(searchRequest);
 ```
 
 # CookieHelper 
@@ -177,6 +199,8 @@ var recommendationRequest = new RecommendationRequest {
 };
 
 ```
+
+
 
 # Further information
 * [Relevant documentation](https://docs.kontent.ai/tutorials/develop-apps/build-strong-foundation/personalize-content-with-ai)

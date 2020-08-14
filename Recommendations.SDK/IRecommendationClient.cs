@@ -16,6 +16,13 @@ namespace Kentico.Kontent.Recommendations
         Task<RecommendedContentItem[]> GetRecommendationsAsync(RecommendationRequest recommendationRequest);
 
         /// <summary>
+        /// Returns found items based on sent search term
+        /// </summary>
+        /// <param name="searchRequest"></param>
+        /// <returns></returns>
+        Task<RecommendedContentItem[]> SearchAsync(SearchRequest searchRequest);
+
+        /// <summary>
         /// Creates a new visitor in the recommendation engine
         /// IMPORTANT: Does not need separate tracking enabled to work
         /// </summary>
