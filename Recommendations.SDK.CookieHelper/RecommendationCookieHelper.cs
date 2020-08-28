@@ -14,9 +14,22 @@ namespace Kentico.Kontent.Recommendations.CookieHelper
         /// <returns></returns>
         public static TrackingCookieModel GetRecommendationTrackingCookie(HttpRequest request)
         {
-            var cookieKey = request.Cookies.Keys.FirstOrDefault(x => x.StartsWith(TrackingCookieModel.Name));
+            var cookieKey = request.Cookies.Keys.FirstOrDefault(x => x.StartsWith(TrackingCookieModel.DefaultName));
             return !string.IsNullOrEmpty(cookieKey)
                 ? Helpers.ParseTrackingCookie(request.Cookies[cookieKey])
+                : null;
+        }
+
+        /// <summary>
+        /// Returns a tracking cookie model based on google tracking cookie
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public static TrackingCookieModel GetGoogleTrackingCookie(HttpRequest request)
+        {
+            var cookieKey = request.Cookies.Keys.FirstOrDefault(x => x.ToLower() == "_ga");
+            return !string.IsNullOrEmpty(cookieKey)
+                ? Helpers.ParseGoogleCookie(request.Cookies[cookieKey])
                 : null;
         }
 

@@ -8,6 +8,19 @@ namespace Kentico.Kontent.Recommendations.CookieHelper
     {
         private static readonly Random Rnd = new Random();
 
+        public static TrackingCookieModel ParseGoogleCookie(string cookieVal)
+        {
+            var values = cookieVal.Split('.');
+            if (values.Length < 4)
+                return null;
+            return new TrackingCookieModel
+            {
+                Name = "_ga",
+                VisitId = values[2],
+                Expiration = int.Parse(values[3])
+            };
+        }
+
         public static TrackingCookieModel ParseTrackingCookie(string cookieVal)
         {
             var values = cookieVal.Split('.');

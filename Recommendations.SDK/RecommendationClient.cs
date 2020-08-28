@@ -21,7 +21,7 @@ namespace Kentico.Kontent.Recommendations
         /// </summary>
         /// <param name="recommendationApiKey">Your recommendation Api Key (token)</param>
         /// <param name="timeoutSeconds">Time after which the request will be canceled if not completed. You should implement a fallback if this situation ever occurs.</param>
-        public RecommendationClient(string recommendationApiKey, int timeoutSeconds) : this("http://recommend.kontent.ai", recommendationApiKey, timeoutSeconds)
+        public RecommendationClient(string recommendationApiKey, int timeoutSeconds) : this("https://recommend.kontent.ai", recommendationApiKey, timeoutSeconds)
         {
         }
 

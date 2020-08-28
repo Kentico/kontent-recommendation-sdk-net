@@ -14,11 +14,11 @@
     <PackageId>Kentico.Kontent.Recommendations.CookieHelper</PackageId>
     <PackageTags>kentico;kontent;recommender;cookie</PackageTags>
     <PackageIconUrl>https://github.com/Kentico/Home/blob/master/images/kk-logo-nuget.png?raw=true</PackageIconUrl>
-    <PackageProjectUrl>https://github.com/Kentico/recommender-sdk-net</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Kentico/kontent-recommendations-net</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/Kentico/recommender-sdk-net.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Kentico/kontent-recommendations-net.git</RepositoryUrl>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IncludeSymbols>true</IncludeSymbols>
