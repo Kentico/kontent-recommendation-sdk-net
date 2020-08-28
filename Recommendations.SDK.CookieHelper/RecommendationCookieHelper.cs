@@ -47,7 +47,7 @@ namespace Kentico.Kontent.Recommendations.CookieHelper
             if (string.IsNullOrEmpty(hostname)) hostname = request.Headers["Host"].ToString()?.Split(':')[0];
 
             var cookie = Helpers.CreateCookie(request.Headers["User-Agent"], hostname);
-            response.Cookies.Append(TrackingCookieModel.Name, cookie.ToString(), new CookieOptions { Expires = DateTimeOffset.Now.Add(expiration.Value), Domain = $"{hostname}"});
+            response.Cookies.Append(TrackingCookieModel.DefaultName, cookie.ToString(), new CookieOptions { Expires = DateTimeOffset.Now.Add(expiration.Value), Domain = $"{hostname}"});
             return cookie;
         }
 
