@@ -112,6 +112,8 @@ RecommendedContentItem[] foundArticles = await recommendationClient.SearchAsync(
 # CookieHelper 
 This package provides a helper class, that let's you setup a very simple yet effective way to distinguish your visitors and recover additional details about them. It works with the .net core _Request_ and _Response_ objects and creates uses **cookies to track visitors**. 
 
+Alternatively, the helper let's you reuse **Google Analytics** clientId to identify the visitor inside of the recommendation system.
+
 | Version        | Package  | Downloads |
 | ------------- |:-------------:| :-------------:|
 | netcore2.0+   |      [![NuGet](https://img.shields.io/nuget/v/Kentico.Kontent.Recommendations.CookieHelper.svg)](https://www.nuget.org/packages/Kentico.Kontent.Recommendations.CookieHelper) | [![NuGet](https://img.shields.io/nuget/dt/Kentico.Kontent.Recommendations.CookieHelper.svg)](https://www.nuget.org/packages/Kentico.Kontent.Recommendations.CookieHelper) |
@@ -129,20 +131,18 @@ Installation via .NET CLI:
 > dotnet add package Kentico.Kontent.Recommendations.CookieHelper 
 ```
 
-#### Keep in mind, that you may be legally bound to disclose this information to your visitors and let them disable tracking cookies when using this package.
+> :note: Keep in mind, that you may be legally bound to disclose this information to your visitors and let them disable tracking cookies when using this package.
+
+
+> :warning: Check if your received *Request* object contains cookies when processing it on the backend. Cross domain calls will block cookies by default, as well as multiple popular javascript http clients won't send them by without proper settings in place ([axios example](https://stackoverflow.com/questions/43002444/make-axios-send-cookies-in-its-requests-automatically)) if you are using ajax to retreive recommendations asynchronously.
+
 
 ```csharp
 using Kentico.Kontent.Recommendations.CookieHelper;
 
-//The visitId is being stored inside of the tracking cookie
-var cookie = RecommendationCookieHelper.GetRecommendationTrackingCookie(Request);
+//Get the tracking cookie either from google analytics or from our custom tracking cookie or create a newone
+var cookie = RecommendationCookieHelper.GetGoogleTrackingCookie(Request) ?? RecommendationCookieHelper.GetRecommendationTrackingCookie(Request) ??           RecommendationCookieHelper.SetNewRecommendationTrackingCookie(Request, Response, TimeSpan.FromDays(60), "mydomain.com");
 
-//If there is no cookie -> the visitor just arrived and doesn't yet have the visitId
-if (cookie == null) 
-{
-   //We create a new tracking cookie for the visitor
-   cookie = RecommendationCookieHelper.SetNewRecommendationTrackingCookie(Request, Response);
-}
 
 //Generated visitId we can use in the recommendation request
 var visitId = trackingCookie.VisitId; 
