@@ -134,7 +134,8 @@ Installation via .NET CLI:
 > :memo: Keep in mind, that you may be legally bound to disclose this information to your visitors and let them disable tracking cookies when using this package.
 
 
-> :warning: Check if your received *Request* object contains cookies when processing it on the backend. Cross domain calls will block cookies by default, as well as multiple popular javascript http clients won't send them by without proper settings in place ([axios example](https://stackoverflow.com/questions/43002444/make-axios-send-cookies-in-its-requests-automatically)) if you are using ajax to retreive recommendations asynchronously.
+> :warning: Check if your received *Request* object contains cookies when processing it on your backend. Cross domain calls will block cookies by default, as well as multiple popular javascript http clients won't send them by without proper settings in place ([axios example](https://stackoverflow.com/questions/43002444/make-axios-send-cookies-in-its-requests-automatically)) if you are using ajax to retreive recommendations asynchronously. 
+**Check your settings if you are using different domains for your frontend and backend and if you are using ajax to retreive recommendations asynchronously!**
 
 
 ```csharp
