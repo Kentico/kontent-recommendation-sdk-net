@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <RootNamespace>Kentico.Kontent.Recommendations.CookieHelper</RootNamespace>
+    <Description></Description>
+    <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput)</TargetsForTfmSpecificBuildOutput>
+    <Copyright>(c) 2020 Kentico Software. All rights reserved.</Copyright>
+    <AssemblyTitle>Kentico Kontent Recommendations CookieHelper (AspNetCore)</AssemblyTitle>
+    <Title>Kentico Kontent Recommendations CookieHelper (AspNetCore)</Title>
+    <NeutralLanguage>en-us</NeutralLanguage>
+    <Authors>Kentico Software</Authors>
+    <AssemblyName>Kentico.Kontent.Recommendations.CookieHelper</AssemblyName>
+    <PackageId>Kentico.Kontent.Recommendations.CookieHelper</PackageId>
+    <PackageTags>kentico;kontent;recommender;cookie</PackageTags>
+    <PackageIconUrl>https://github.com/Kentico/Home/blob/master/images/kk-logo-nuget.png?raw=true</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/Kentico/kontent-recommendations-net</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Kentico/kontent-recommendations-net.git</RepositoryUrl>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <Product>Kentico.Kontent.Recommendations.CookieHelper</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Kentico.Kontent.Recommendations" Version="0.0.2-beta" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Microsoft.Sourcelink.Github" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+</Project>

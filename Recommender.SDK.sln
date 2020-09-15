@@ -1,15 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recommender.SDK", "Recommender.SDK\Recommender.SDK.csproj", "{3305E2D2-C398-4D56-9E3B-1BE299502FE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kentico.Kontent.Recommendations", "Recommendations.SDK\Kentico.Kontent.Recommendations.csproj", "{C7BF0DCE-6004-4B3A-90BC-9D8C6E99128F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recommender.SDK.Shared", "Recommender.SDK.Shared\Recommender.SDK.Shared.csproj", "{C7BF0DCE-6004-4B3A-90BC-9D8C6E99128F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recommender.SDK.MVC", "Recommender.SDK.MVC\Recommender.SDK.MVC.csproj", "{6B13C145-C46E-4A37-8B82-B2906B1FDE16}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recommender.SDK.Tests", "Recommender.SDK.Tests\Recommender.SDK.Tests.csproj", "{B8F04A56-09EA-4DDD-A50D-A92F9633A0ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kentico.Kontent.Recommendations.CookieHelper", "Recommendations.SDK.CookieHelper\Kentico.Kontent.Recommendations.CookieHelper.csproj", "{9DD181F2-2F8A-450A-9A84-CC77926332D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,22 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3305E2D2-C398-4D56-9E3B-1BE299502FE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3305E2D2-C398-4D56-9E3B-1BE299502FE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3305E2D2-C398-4D56-9E3B-1BE299502FE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3305E2D2-C398-4D56-9E3B-1BE299502FE3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C7BF0DCE-6004-4B3A-90BC-9D8C6E99128F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C7BF0DCE-6004-4B3A-90BC-9D8C6E99128F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7BF0DCE-6004-4B3A-90BC-9D8C6E99128F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7BF0DCE-6004-4B3A-90BC-9D8C6E99128F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B13C145-C46E-4A37-8B82-B2906B1FDE16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B13C145-C46E-4A37-8B82-B2906B1FDE16}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B13C145-C46E-4A37-8B82-B2906B1FDE16}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B13C145-C46E-4A37-8B82-B2906B1FDE16}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8F04A56-09EA-4DDD-A50D-A92F9633A0ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8F04A56-09EA-4DDD-A50D-A92F9633A0ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8F04A56-09EA-4DDD-A50D-A92F9633A0ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8F04A56-09EA-4DDD-A50D-A92F9633A0ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DD181F2-2F8A-450A-9A84-CC77926332D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DD181F2-2F8A-450A-9A84-CC77926332D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DD181F2-2F8A-450A-9A84-CC77926332D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DD181F2-2F8A-450A-9A84-CC77926332D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
