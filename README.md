@@ -210,4 +210,3 @@ var recommendationRequest = new RecommendationRequest {
 # Get involved
 Check out the [contributing](CONTRIBUTING.md) page to see the best places to file issues, start discussions, and begin contributing.
 
-![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/recommender-sdk-net?pixel)
