@@ -1,10 +1,9 @@
 ## Kentico Kontent Recommendation .NET SDK
-[![Build & Test](https://github.com/Kentico/kontent-recommendations-net/actions/workflows/integrate.yml/badge.svg)](https://github.com/Kentico/kontent-recommendations-net/actions/workflows/integrate.yml)
-[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
 
-| Package  | Downloads |
-|:-------------:| :-------------:|
- [![NuGet](https://img.shields.io/nuget/v/Kentico.Kontent.Recommendations.svg)](https://www.nuget.org/packages/Kentico.Kontent.Recommendations) | [![NuGet](https://img.shields.io/nuget/dt/Kentico.Kontent.Recommendations.svg)](https://www.nuget.org/packages/Kentico.Kontent.Recommendations) |
+[![No Maintenance Intended](https://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+## :warning: Deprecation Notice
+> Kontent's Recommendations API has been deprecated (see [changelog](https://docs.kontent.ai/changelog/product-changelog#a-deprecating-the-smart-recommendations-api)). We advise to use the underlying [Recombee](https://www.recombee.com/) service directly to recommend your content. 
+
 
 # Summary
 Forget manually browsing, updating and testing your related content - create personalized content recommendations using our integrated AI-based recommendation engine fast and simple.
